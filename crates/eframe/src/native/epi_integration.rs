@@ -231,11 +231,14 @@ impl EpiIntegration {
 
         *egui_ctx.memory() = load_egui_memory(storage.as_deref()).unwrap_or_default();
 
+        let screen_size = egui_winit::screen_size_in_pixels(window);
         let frame = epi::Frame {
             info: epi::IntegrationInfo {
                 system_theme,
                 cpu_usage: None,
                 native_pixels_per_point: Some(native_pixels_per_point(window)),
+                screen_width_in_pixels: Some(screen_size.x),
+                screen_height_in_pixels: Some(screen_size.y),
                 window_info: read_window_info(window, egui_ctx.pixels_per_point()),
             },
             output: Default::default(),

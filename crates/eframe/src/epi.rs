@@ -900,6 +900,12 @@ pub struct IntegrationInfo {
     /// The OS native pixels-per-point
     pub native_pixels_per_point: Option<f32>,
 
+    /// The OS native screen width in pixels
+    pub screen_width_in_pixels: Option<f32>,
+
+    /// The OS native screen height in pixels
+    pub screen_height_in_pixels: Option<f32>,
+
     /// The position and size of the native window.
     #[cfg(not(target_arch = "wasm32"))]
     pub window_info: WindowInfo,
